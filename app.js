@@ -17,6 +17,7 @@ app.use("*", (req, res) => {
         data: "Resource not found",
     });
 });
+
 app.use(errorHandler);
 
 const startServer = () => {

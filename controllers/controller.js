@@ -36,11 +36,12 @@ const login = async (req, res, next) => {
     });
 };
 
-const dashboard = async (req, res) => {
+const dashboard = async (req, res, next) => {
     //remember to pass authorisation in header not query in end point and postman
     var authHeader = req.headers.authorization;
+
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        throw new CustomApiError("Unauthorized user", 401);
+        return next(createCustomError("Unauthorized", 401));
     }
 
     const token = authHeader.split(" ")[1];
@@ -53,7 +54,7 @@ const dashboard = async (req, res) => {
             data: `Your lucky number is ${Math.floor(Math.random() * 100)}`,
         });
     } catch (error) {
-        throw new CustomApiError("Unauthorized user", 401);
+        return next(createCustomError("Unauthorized user", 401));
     }
 };
 
