@@ -4,7 +4,6 @@ const passwordInputDOM = document.querySelector(".password-input");
 const formAlertDOM = document.querySelector(".form-alert");
 const resultDOM = document.querySelector(".result");
 const btnDOM = document.querySelector("#data");
-const login = document.querySelector("#login");
 const tokenDOM = document.querySelector(".token");
 
 formDOM.addEventListener("submit", async (e) => {
@@ -55,9 +54,7 @@ btnDOM.addEventListener("click", async () => {
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log(data);
         resultDOM.innerHTML = `<h5>${data.welcome}</h5><p>${data.data}</p>`;
-
         data.secret;
     } catch (error) {
         localStorage.removeItem("token");

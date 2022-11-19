@@ -37,6 +37,7 @@ const login = async (req, res, next) => {
 };
 
 const dashboard = async (req, res, next) => {
+    var authHeader = req.headers;
     //decode ur token
     // try {
     //     const decoded = jwt.verify(token, process.env.JWT_SECRET);

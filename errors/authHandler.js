@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { CustomApiError } = require("./CustomApiError");
+const { CustomApiError, createCustomError } = require("./CustomApiError");
 const authHandler = async (req, res, next) => {
     //remember to pass authorisation in header not query in end point and postman
     var authHeader = req.headers.authorization;
@@ -24,4 +24,4 @@ const authHandler = async (req, res, next) => {
     next();
 };
 
-module.exports = { authHandler };
+module.exports = { authHandler }; //add to router
