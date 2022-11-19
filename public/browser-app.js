@@ -22,7 +22,7 @@ formDOM.addEventListener("submit", async (e) => {
         });
 
         console.log(data);
-        formAlertDOM.textContent = "block";
+        formAlertDOM.style.display = "block";
         formAlertDOM.textContent = data.data;
 
         formAlertDOM.classList.add("text-success");

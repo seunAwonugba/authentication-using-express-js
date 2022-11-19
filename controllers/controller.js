@@ -31,7 +31,7 @@ const login = async (req, res, next) => {
 
     res.status(200).json({
         success: true,
-        data: "user created",
+        data: "user login successfully",
         token: token,
     });
 };
