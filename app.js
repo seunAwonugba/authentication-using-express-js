@@ -6,15 +6,16 @@ const { router } = require("./router/router");
 require("express-async-errors");
 const { errorHandler } = require("./errors/errorHandler");
 require("dotenv").config();
+const { StatusCodes } = require("http-status-codes");
 
 app.use(express.json());
 app.use(express.static("./public"));
 app.use("/api/v1", router);
 
 app.use("*", (req, res) => {
-    res.status(200).json({
+    res.status(StatusCodes.NOT_FOUND).json({
         success: false,
-        data: "Resource not found",
+        data: StatusCodes.NOT_FOUND,
     });
 });
 
