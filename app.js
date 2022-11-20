@@ -15,7 +15,7 @@ app.use("/api/v1", router);
 app.use("*", (req, res) => {
     res.status(StatusCodes.NOT_FOUND).json({
         success: false,
-        data: StatusCodes.NOT_FOUND,
+        data: "Resource not found",
     });
 });
 
