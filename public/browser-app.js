@@ -20,7 +20,6 @@ formDOM.addEventListener("submit", async (e) => {
             password,
         });
 
-        console.log(data);
         formAlertDOM.style.display = "block";
         formAlertDOM.textContent = data.data;
 
@@ -33,7 +32,6 @@ formDOM.addEventListener("submit", async (e) => {
         tokenDOM.textContent = "token present";
         tokenDOM.classList.add("text-success");
     } catch (error) {
-        console.log(error.response.data.data);
         formAlertDOM.style.display = "block";
         formAlertDOM.textContent = error.response.data.data;
         localStorage.removeItem("token");
@@ -58,7 +56,7 @@ btnDOM.addEventListener("click", async () => {
         data.secret;
     } catch (error) {
         localStorage.removeItem("token");
-        resultDOM.innerHTML = `<p>${error.response.data.msg}</p>`;
+        resultDOM.innerHTML = `<p>${error.response.data.data}</p>`;
     }
 });
 
